@@ -2,18 +2,23 @@ import React, { useState, useContext } from 'react';
 import { Row, Col, Button } from 'react-bootstrap';
 import { MdOutlineEditCalendar, MdOutlineDeleteOutline } from "react-icons/md";
 import { Link } from 'react-router-dom';
-import { v4 as uuidv4 } from 'uuid';
 import ButtonAdd from "../../components/ButtonAdd";
 import ModalDelete from '../../components/ModalDelete';
 import { GlobalContext } from "../../context/GlobalState";
 import "./listuser.scss";
 
-
 const ListUser = () => {
     const [showModalDelete, setShowModalDelete] = useState(false);
     const { users } = useContext(GlobalContext);
+    const [dataUser, setDataUser] = useState({})
+
     const handleClose = () => setShowModalDelete(false);
-    const handleShow = () => setShowModalDelete(true);
+    const handleShow = (user) => {
+        setShowModalDelete(true);
+        // console.log("data: ", user);
+        setDataUser(user);
+    }
+    
     return (
         <>
             <ButtonAdd />
@@ -26,13 +31,13 @@ const ListUser = () => {
                                 <Link to={`edit-user/${user.id}`}>
                                     <Button variant="warning" size="sm"><MdOutlineEditCalendar size={20} /></Button>
                                 </Link>
-                                <Button className="mx-3" variant="danger" size="sm"><MdOutlineDeleteOutline size={20} onClick={handleShow} /></Button>
+                                <Button className="mx-3" variant="danger" size="sm"><MdOutlineDeleteOutline size={20} onClick={() => handleShow(user)} /></Button>
                             </div>
                         </div>
                     </Col>
                 ))}
             </Row>
-            <ModalDelete show={showModalDelete} handleClose={handleClose} />
+            <ModalDelete show={showModalDelete} handleClose={handleClose} dataUser={dataUser} />
         </>
     );
 };

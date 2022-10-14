@@ -13,7 +13,7 @@ const ModalDelete = ({ show, handleClose }) => {
                     Close
                 </Button>
                 <Button variant="primary" onClick={handleClose}>
-                    Save Changes
+                    Delete
                 </Button>
             </Modal.Footer>
         </Modal>

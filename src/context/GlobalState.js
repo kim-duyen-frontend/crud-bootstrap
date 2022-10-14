@@ -18,11 +18,18 @@ const initialState = {
         }
     ]
 }
+
 export const GlobalContext = createContext(initialState);
 export const GlobalProvider = ({ children }) => {
     const [state, dispatch] = useReducer(TodoReducer, initialState);
+    const createUser = (data) => {
+        dispatch({
+            type: "ADD_USER",
+            payload: data
+        })
+    }
     return (
-        <GlobalContext.Provider value={{ users: state.users }}>
+        <GlobalContext.Provider value={{ users: state.users, createUser }}>
             {children}
         </GlobalContext.Provider>
     )
