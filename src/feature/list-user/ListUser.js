@@ -29,7 +29,11 @@ const ListUser = () => {
                             <div className="text-wrap text-capitalize fw-bold">{user.name}</div>
                             <div className="actions">
                                 <Link to={`edit-user/${user.id}`}>
-                                    <Button variant="warning" size="sm"><MdOutlineEditCalendar size={20} /></Button>
+                                    <Button
+                                        variant="warning"
+                                        size="sm">
+                                        <MdOutlineEditCalendar size={20} />
+                                    </Button>
                                 </Link>
                                 <Button className="mx-3" variant="danger" size="sm"><MdOutlineDeleteOutline size={20} onClick={() => handleShow(user)} /></Button>
                             </div>
