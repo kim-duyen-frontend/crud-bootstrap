@@ -1,7 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Modal, Button } from 'react-bootstrap';
+import { GlobalContext } from "../context/GlobalState";
 
-const ModalDelete = ({ show, handleClose }) => {
+const ModalDelete = ({ show, handleClose, dataUser }) => {
+    const { deleteUser } = useContext(GlobalContext);
+    
+    const handleDeleteItem = () => {
+        // console.log("check data: ", dataUser);
+        deleteUser(dataUser.id);
+        handleClose();
+    }
+
     return (
         <Modal show={show} onHide={handleClose} centered>
             <Modal.Header closeButton>
@@ -12,7 +21,7 @@ const ModalDelete = ({ show, handleClose }) => {
                 <Button variant="secondary" onClick={handleClose}>
                     Close
                 </Button>
-                <Button variant="primary" onClick={handleClose}>
+                <Button variant="primary" onClick={handleDeleteItem}>
                     Delete
                 </Button>
             </Modal.Footer>
