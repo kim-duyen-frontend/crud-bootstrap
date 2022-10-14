@@ -1,37 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Row, Col, Button } from 'react-bootstrap';
 import { MdOutlineEditCalendar, MdOutlineDeleteOutline } from "react-icons/md";
 import { Link } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import ButtonAdd from "../../components/ButtonAdd";
 import ModalDelete from '../../components/ModalDelete';
-
+import { GlobalContext } from "../../context/GlobalState";
 import "./listuser.scss";
 
-const initialState = [
-    {
-        id: uuidv4(),
-        name: "Kiến Vinh"
-    },
-    {
-        id: uuidv4(),
-        name: "Thu Hiền"
-    },
-    {
-        id: uuidv4(),
-        name: "Kim Duyên"
-    }
-];
+
 const ListUser = () => {
     const [showModalDelete, setShowModalDelete] = useState(false);
-
+    const { users } = useContext(GlobalContext);
     const handleClose = () => setShowModalDelete(false);
     const handleShow = () => setShowModalDelete(true);
     return (
         <>
             <ButtonAdd />
             <Row className="my-3 gy-3">
-                {initialState.map((user) => (
+                {users.map((user) => (
                     <Col key={user.id} md={6} lg={4}>
                         <div className="box">
                             <div className="text-wrap text-capitalize fw-bold">{user.name}</div>
