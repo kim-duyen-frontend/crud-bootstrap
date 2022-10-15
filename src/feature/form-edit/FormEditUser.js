@@ -7,14 +7,15 @@ const FormEditUser = () => {
     const [username, setUserName] = useState({
         name: ""
     });
-    const { users } = useContext(GlobalContext);
+    const { users, updateUser } = useContext(GlobalContext);
 
     let navigate = useNavigate();
     let params = useParams();
 
     // console.log("check data url: ", params.id);
     const handleUpdateItem = () => {
-        // navigate("/");
+        updateUser(username);
+        navigate("/");
     }
     useEffect(() => {
         let idExist = users.find((dataUsers) => dataUsers.id === params.id);

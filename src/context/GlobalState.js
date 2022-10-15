@@ -34,8 +34,14 @@ export const GlobalProvider = ({ children }) => {
             payload: id
         })
     }
+    const updateUser = (data) => {
+        dispatch({
+            type: "UPDATE_USER",
+            payload: data
+        })
+    }
     return (
-        <GlobalContext.Provider value={{ users: state.users, createUser, deleteUser }}>
+        <GlobalContext.Provider value={{ users: state.users, createUser, deleteUser, updateUser }}>
             {children}
         </GlobalContext.Provider>
     )
