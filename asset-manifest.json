@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/crud-bootstrap/static/css/main.afc3145f.css",
+    "main.js": "/crud-bootstrap/static/js/main.f76c9177.js",
+    "static/js/787.7015c803.chunk.js": "/crud-bootstrap/static/js/787.7015c803.chunk.js",
+    "index.html": "/crud-bootstrap/index.html",
+    "main.afc3145f.css.map": "/crud-bootstrap/static/css/main.afc3145f.css.map",
+    "main.f76c9177.js.map": "/crud-bootstrap/static/js/main.f76c9177.js.map",
+    "787.7015c803.chunk.js.map": "/crud-bootstrap/static/js/787.7015c803.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.afc3145f.css",
+    "static/js/main.f76c9177.js"
+  ]
+}
